@@ -39,7 +39,6 @@ public class PrioritizerListener implements ProcessEventListener {
     }
 
     private void sortTasks() {
-        System.out.println("SORT TASKS");
         // get processes
         Collection<ProcessInstanceDesc> instances =
                 dataService.getProcessInstancesByProcessDefinition(processName, Arrays.asList(1), new QueryContext());
@@ -64,7 +63,6 @@ public class PrioritizerListener implements ProcessEventListener {
         for (int i = 0; i < sortedTasks.size(); i++) {
             UserTaskInstanceDesc t = sortedTasks.get(i);
             taskService.setPriority(t.getTaskId(), i);
-            System.out.println(t);
         }
     }
 
